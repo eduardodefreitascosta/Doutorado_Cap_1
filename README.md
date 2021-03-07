@@ -16,5 +16,5 @@ Eduardo de Freitas Costa, Luis Gustavo Corbellini, Ana Paula Serafini Poeta Silv
 
 https://onlinelibrary.wiley.com/doi/abs/10.1111/risa.12753
 
-Costa, de F. C., Corbellini, Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A Stochastic Model to Assess the Effect of Meat Inspection Practices on the Contamination of the Pig Carcasses. **Risk Analysis**, V. 37 (10), p, 1849-1864. DOI: 10.1111/risa.12753.
+Costa, de F. C., Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A Stochastic Model to Assess the Effect of Meat Inspection Practices on the Contamination of the Pig Carcasses. **Risk Analysis**, V. 37 (10), p, 1849-1864. DOI: 10.1111/risa.12753.
 
