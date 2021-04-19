@@ -9,7 +9,7 @@ A Stochastic Model to Assess the Effect of Meat Inspection Practices on the Cont
 
 Eduardo de Freitas Costa, Luis Gustavo Corbellini, Ana Paula Serafini Poeta Silva and Maarten Nauta
 
-## This is a @Risk file for the cros-contamination of *Salmonella* spp. during inspeciton of carcasses of pigs in Brazil
+## This is an @Risk file for the cros-contamination of *Salmonella* spp. during inspeciton of carcasses of pigs in Brazil
 
 
 ## The paper is available online:
