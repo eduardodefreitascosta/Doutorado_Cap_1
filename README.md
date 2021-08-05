@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.1111/risa.12753.svg)](https://doi.org/10.1111/risa.12753)
 
-:hand: :hook: :knife: :pig:
+:pig: :hand: :knife: :mag: :cut_of_meat:
 
 
 # Title: 
