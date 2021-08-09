@@ -33,21 +33,21 @@ Costa, de F. C., Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A S
 
 ### 3 In R, you can open the file\ 
 
-  + "main.R" (available in the tab "Files" into the Scripts folder)\ 
+  + "main.R" (available in the tab "Files" into the *Cap_1\Scripts* folder)\ 
   
 ### 4 Run all lines to run the model;
 
-### 5 After that, type in the console model(rcarc=,nrepl=), where *ncarc* is the number of carcasses considered, and *nrepl* is the number of stochastic iterations;
+### 5 After that, type in the console *model(ncarc=,nrepl=)*, where *ncarc* is the number of carcasses considered, and *nrepl* is the number of stochastic iterations;
 
-### Note that two folders were created in to the folder Cap_1:
+### Note that two folders were created into the folder *Cap_1*:
   - **Output**: Stores the results of the multivariate scenarios simulation, including the baseline;
   
   - **Figures**: Stores the histograms for the *Salmonella* sp. concentration on carcasses surfaces before and after inspection for all scenarios, including the baseline;
   
 ## Using @Risk
 
-### 1 The user needs the @Risk intalled. After that, copy and open the file\
- + "inspection_model_12.xls" (available in the tab "Files" into the Scripts folder)\ 
+### 1 The user needs the add in @Risk installed. After that, copy and open the file\
+ + "inspection_model_12.xls" (available in the tab "Files" into the *Cap_1\Scripts* folder)\ 
  
 ### 2 Execute the stochastic simulation according to the @Risk command. The results will be available in the outputs tabs. 
 
