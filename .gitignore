@@ -2,20 +2,25 @@
 .Rhistory
 .RData
 .Ruserdata
+.gitignore
+README.html
+
 /Cap_3
 /Cap_non_used
 /Cross_inspeciton
-/Cap_non_used/Cap_1/Scripts/inspection_model_2.xls
-/Cap_1/Scripts/inspection_model_2.xls
-
-/Cross_inspection
 /Defesa
-/Doutorado.Rproj
+/Scripts
+
+
 /References
 grafico.R
 *grafico.R
 
 /Cap_1/Paper
+/Cap_1/Figures
+/Cap_1/Output
+/Cap_1/Scripts/.Rhistory
+
 
 /Cap_1/Scripts/inspection_model_2.xlsx
 /Cap_1/Scripts/inspection_model_3.xlsx
@@ -29,7 +34,3 @@ grafico.R
 /Cap_1/Scripts/inspection_model_10.xlsx
 /Cap_1/Scripts/inspection_model_11.xlsx
 /Cap_1/Scripts/inspection_model_11.xls
-
-
-/Cap_1/Scripts/modelo carcaças4.R
-
