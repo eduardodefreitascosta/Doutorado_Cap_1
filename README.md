@@ -37,6 +37,8 @@ Costa, de F. C., Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A S
   
 ### 4 Run all lines to run the model;
 
+### 5 After that, type in the console model(rcarc=,nrepl=), where *ncarc* is the number of carcasses considered, and *nrepl* is the number of stochastic iterations;
+
 ### Note that two folders were created in to the folder Cap_1:
   - **Output**: Stores the results of the multivariate scenarios simulation, including the baseline;
   
@@ -44,8 +46,8 @@ Costa, de F. C., Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A S
   
 ## Using @Risk
 
-### The user needs the @Risk intalled. After that, copy and open the file\
+### 1 The user needs the @Risk intalled. After that, copy and open the file\
  + "inspection_model_12.xls" (available in the tab "Files" into the Scripts folder)\ 
  
-### Execute the stochastic simulation according to the @Risk command. 
+### 2 Execute the stochastic simulation according to the @Risk command. The results will be available in the outputs tabs. 
 
