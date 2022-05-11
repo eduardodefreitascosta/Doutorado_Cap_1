@@ -7,6 +7,8 @@
 
 A Stochastic Model to Assess the Effect of Meat Inspection Practices on the Contamination of the Pig Carcasses
 
+
+
 # Authors: 
 
 Eduardo de Freitas Costa, Luis Gustavo Corbellini, Ana Paula Serafini Poeta Silva and Maarten Nauta
