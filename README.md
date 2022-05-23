@@ -37,14 +37,14 @@ Costa, de F. C., Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A S
 
   + "main.R" (available in the tab "Files" into the *Cap_1\Scripts* folder)\ 
   
-### 4 Run all lines to run the model;
+### 4 Load the packages before running the model;
 
-### 5 After that, type in the console *model(ncarc=,nrepl=)*, where *ncarc* is the number of carcasses considered, and *nrepl* is the number of stochastic iterations;
+### 5 After that, choose if the baseline, univariate or multivariate models will be run. All functions follow the same:  *model(ncarc=,nrepl=)*, where *ncarc* is the number of carcasses considered, and *nrepl* is the number of stochastic iterations;
 
 ### Note that two folders were created into the folder *Cap_1*:
-  - **Output**: Stores the results of the multivariate scenarios simulation, including the baseline;
+  - **Output**: Stores the results of the baseline, univariable, and multivariate scenarios simulation;
   
-  - **Figures**: Stores the histograms for the *Salmonella* sp. concentration on carcasses surfaces before and after inspection for all scenarios, including the baseline;
+  - **Figures**: Stores the graphs for the *Salmonella* sp. concentration on carcasses surfaces before and after inspection for all scenarios, including the baseline;
   
 ## Using @Risk
 

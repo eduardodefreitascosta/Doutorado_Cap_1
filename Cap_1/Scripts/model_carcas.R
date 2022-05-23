@@ -1,11 +1,50 @@
 
+#header #################################################################################
+#'model_carcass.R'
+
+#Title: Stochastic modeling for cross-contamination carcasses during inspection
+#Project ID: pid
+#Client: client
+#Author: <Eduardo> <Costa>, 
+
+#Description: Base line and multivariable sensitivity analysis for cross-contamination during 
+            # pigs carcassess inspection in BR
+
+#Start date: date
+#Last Update: {6:date}
+
+#R version: r.version
+#Scriptversion: version
+
+#Dependencies
+#<-Downstream
+#+ inputs.r
+#->Upstream
+# +main.r
+
+#Input:
+# +Data/inputs.R
+
+#Output:
+# +Multi_scenarios/ .txt
+# +Figures/ .tif
+# +Figure/Multi_scenarios .png
+
+#Peer reviewer(s)
+
+#Please ensure directories are relative. Please comment code sufficiently.
+
+#Script start#############################################################################
+
+
+rm(list = ls())
 model<-function(ncarc, nrepl){
 
 
  #Calling inputs
  source(here("Cap_1","Data","inputs.R"))
 
-for(k in 1:9){
+for(k in 1:1){
   tempo_inicial1 = proc.time()
   cat("\n\n scenario: ", k, "\n")
   
@@ -297,6 +336,10 @@ for(j in 1:nrepl){
   me_C[j]=ifelse(is.na(mean(logC,na.rm=T)),0,mean(logC,na.rm=T))
   me_OS[j]=ifelse(is.na(mean(logOS,na.rm=T)),0,mean(logOS,na.rm=T))
   me_O[j]=ifelse(is.na(mean(logO,na.rm=T)),0,mean(logO,na.rm=T))
+  
+  me_CS1[j]=ifelse(is.na(mean(logCS[1:100],na.rm=T)),0,mean(logCS[1:100],na.rm=T))
+  me_C1[j]=ifelse(is.na(mean(logC[1:100],na.rm=T)),0,mean(logC[1:100],na.rm=T))
+  
     
   prevalence_CS[j]=mean(prev_CS,na.rm=T)
   prevalence_C[j]=mean(prev_C,na.rm=T)
@@ -335,12 +378,12 @@ for(j in 1:nrepl){
              )
   
 
-  dir.create(here("Cap_1","Output","Multi_scenarios"),showWarnings = F)
+  dir.create(here("Cap_1","Output","Baseline"),showWarnings = F)
   
   
   data.labels <- paste(names[1:k], ".txt", sep="")
   
-  data.local<- file.path(paste(here(),"/Cap_1","/Output","/Multi_scenarios",sep=""), data.labels[k])
+  data.local<- file.path(paste(here(),"/Cap_1","/Output","/Baseline",sep=""), data.labels[k])
   
   capture.output(suma, file = data.local, append=FALSE)
   
@@ -348,39 +391,72 @@ for(j in 1:nrepl){
   label1<-rep("Surface before",length(me_CS))
   label2<-rep("Surface after",length(me_C))
   
+  label3<-rep("Surface before",length(me_CS1))
+  label4<-rep("Surface after",length(me_C1))
   
-  data_hist<-cbind.data.frame(c(me_CS,me_C),c(label1,label2))
   
-  colnames(data_hist)<-c("value","moment")
+  data_hist<-cbind.data.frame(c(me_CS,me_C),c(label1,label2),rep("b",2*length(me_CS1)))
+  
+  data_hist1<-cbind.data.frame(c(me_CS1,me_C1),c(label3,label4),rep("a",2*length(me_CS1)))
+  
+  colnames(data_hist)<-c("value","moment","size")
+  colnames(data_hist1)<-c("value","moment","size")
+  
+  total_hist<-cbind.data.frame(rbind.data.frame(data_hist,data_hist1))
+  
   
 
-  dir.create(here("Cap_1","Figures","Multi_scenarios"),showWarnings = F)
+  dir.create(here("Cap_1","Figures","Baseline"),showWarnings = F)
   
   
- graph<- function(){
-  print(ggplot(data_hist, aes(value, fill = moment)) +
-    geom_histogram(colour='black',size=1)+
+
+  
+ 
+p1<-ggplot(subset(total_hist,size %in% "a"), aes(x=value, fill = moment))+
+    geom_histogram(colour='black',size=1,bins = 60)+
     scale_fill_manual(values = c("darkgrey","white"))+
     scale_y_continuous(breaks=NULL, label=NULL)+
-    scale_x_continuous(breaks=pretty_breaks(), 
-                       limits=c(min(data_hist$value),max(data_hist$value)))+
+    scale_x_continuous(breaks=seq(-4,8,2), 
+                      limits=c(min(total_hist$value),max(total_hist$value)))+
     theme_classic()+
-    ggtitle(names[k])+
     xlab(expression(paste("Mean logCFU/",cm^2)))+
-    theme(legend.position = "right",
-          panel.grid = element_blank(),
+    ggtitle("a",element_text(size=20,face="bold"))+
+    theme(panel.grid = element_blank(),
           axis.title.y = element_blank(),
           axis.text.x=element_text(size=rel(2)),
-          axis.title.x = element_text(size = 20))
-)
-    
- }
- png(file=here("Cap_1","Figures", "Multi_scenarios",paste(names[k],".png",sep="")),
-     width = 465, height = 225, units='mm', res = 300)
-   graph()
- dev.off() 
+          axis.title.x = element_text(size = 20),
+          legend.title = element_blank(),
+          legend.position = c(.95, .95),
+          legend.justification = c("right", "center"),
+          legend.box.just = "right")
+
+p2<-ggplot(subset(total_hist,size %in% "b"), aes(value, fill = moment)) +
+  geom_histogram(colour='black',size=1,bins = 60)+
+  scale_fill_manual(values = c("darkgrey","white"))+
+  scale_y_continuous(breaks=NULL, label=NULL)+
+  scale_x_continuous(breaks=seq(-4,8,2), 
+                     limits=c(min(total_hist$value),max(total_hist$value)))+
+  theme_classic()+
+  xlab(expression(paste("Mean logCFU/",cm^2)))+
+  ggtitle("b",element_text(size=20,face="bold"))+
+  theme(panel.grid = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x=element_text(size=rel(2)),
+        axis.title.x = element_text(size = 20),
+        legend.title = element_blank(),
+        legend.position = c(.95, .95),
+        legend.justification = c("right", "center"),
+        legend.box.just = "right")
+
+   
+  
  
-} #End of scenario looping K
- # return(suma)
-  } #End of function
+ png(file=here("Cap_1","Figures", "Baseline",paste("Fig2",".png",sep="")),
+     width = 465, height = 225, units='mm', res = 300)
+ grid.arrange(p1,p2,ncol=1)
+  dev.off() 
+ 
+    } #End of scenario looping K
+ 
+} #End of function
 

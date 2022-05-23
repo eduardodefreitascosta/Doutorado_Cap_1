@@ -2,10 +2,10 @@
 ## Inputs
 #Transf prob from carcass/organ to environment
 bc_k=c(0.0017,0,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017)  #carcass-knife
-bc_h=c(0.031,0,0.031,0.031,0.031,0.1,0.1,0.1,0.1)   #carcass-hand
+bc_h=c(0.0310,0,0.0310,0.0310,0.0310,0.1,0.1,0.1,0.1)   #carcass-hand
 bc_g=c(0.0017,0,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017)  #carcass-hook
 bo_k=c(0.0017,0,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017)  #oragan-knife
-bo_h=c(0.031,0,0.031,0.031,0.031,0.031,0.031,0.031,0.031)  #organ-hand
+bo_h=c(0.0310,0,0.0310,0.0310,0.0310,0.0310,0.0310,0.0310,0.0310)  #organ-hand
 bo_g=c(0.0017,0,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017,0.0017)  #organ-hook
 
 #Transf prob from environm to carcass/organ
@@ -196,6 +196,9 @@ me_C=numeric()
 me_OS=numeric()
 me_O=numeric()
 
+me_CS1=numeric()
+me_C1=numeric()
+
 sd_CS=numeric()
 sd_C=numeric()
 sd_OS=numeric()
@@ -218,3 +221,6 @@ names<-c("Baseline",
          "Hand influence High SD Carcass (S-1)",
          "Hand Influence high LN CFU (S-1)",
          "Hand Influence high prev LN (S-1)")
+
+
+
