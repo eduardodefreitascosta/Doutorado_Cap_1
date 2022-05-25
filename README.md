@@ -35,7 +35,7 @@ Costa, de F. C., Corbellini, L. G., Poeta Silva, A. P. S., Nauta, M. (2016). A S
 
 ### 3 In R, you can open the file\ 
 
-  + "main.R" (available in the tab "Files" into the *Cap_1\Scripts* folder)\ 
+  + "main.R" \ 
   
 ### 4 Load the packages before running the model;
 

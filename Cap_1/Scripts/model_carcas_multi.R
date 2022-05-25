@@ -49,10 +49,15 @@ model<-function(ncarc, nrepl){
     ###################################
     ##Begin of the stochastic looping##
     ###################################
+    pb <- txtProgressBar(min = 0,      # Minimum value of the progress bar
+                         max = nrepl, # Maximum value of the progress bar
+                         style = 3,    # Progress bar style (also available style = 1 and style = 2)
+                         width = 50,   # Progress bar width. Defaults to getOption("width")
+                         char = "=")   # Character used to create the bar
     
     for(j in 1:nrepl){
-      tempo_inicial1 = proc.time()
-      cat("\n\n nrepl: ", j, "\n")
+      #tempo_inicial1 = proc.time()
+      #cat("\n\n nrepl: ", j, "\n")
       
       ####Initial states
       ###environment
@@ -182,9 +187,12 @@ model<-function(ncarc, nrepl){
       ##Begin of the carcass looping##
       ################################
       
+      
+      
+      
+      
       for (i in 2:ncarc){  
-        tempo_inicial2 = proc.time()
-        cat("\n\n ncarc: ", i, "\n")
+        
         
         ## Environment
         
@@ -330,6 +338,8 @@ model<-function(ncarc, nrepl){
         
       } # Endo of the carcass loop i
       
+      
+      
       me_CS[j]=ifelse(is.na(mean(logCS,na.rm=T)),0,mean(logCS,na.rm=T))
       me_C[j]=ifelse(is.na(mean(logC,na.rm=T)),0,mean(logC,na.rm=T))
       me_OS[j]=ifelse(is.na(mean(logOS,na.rm=T)),0,mean(logOS,na.rm=T))
@@ -340,10 +350,10 @@ model<-function(ncarc, nrepl){
       prevalence_OS[j]=mean(prev_OS,na.rm=T)
       prevalence_O[j]=mean(prev_O,na.rm=T)
       
-      
+      setTxtProgressBar(pb, j)
     } # End of the stochastic node j
     
-    
+    close(pb)
     
     
     #hist logcfu/cm

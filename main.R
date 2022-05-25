@@ -25,7 +25,7 @@ model(ncarc=500, nrepl=5000)
 
 #Run the univariable sensitivity model
 source(here("Cap_1","Scripts","model_carcas_univariable.R"))
-model_uni(ncarc=10, nrepl=20)
+model_uni(ncarc=500, nrepl=5000)
 
 
 #Run the multivariable sensitivity model

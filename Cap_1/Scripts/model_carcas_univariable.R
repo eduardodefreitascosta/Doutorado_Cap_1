@@ -48,7 +48,7 @@ model_uni<-function(ncarc, nrepl){
 
   for(k in 1:7){
     tempo_inicial1 = proc.time()
-    cat("\n\n scenario: ", k, "\n")
+    cat("\n\n parameter: ", k, "\n")
     
     ######################################
     ##Begin of the internal list looping##
@@ -62,10 +62,14 @@ model_uni<-function(ncarc, nrepl){
     ###################################
     ##Begin of the stochastic looping##
     ###################################
+      
+      pb <- txtProgressBar(min = 0,      # Minimum value of the progress bar
+                           max = nrepl, # Maximum value of the progress bar
+                           style = 3,    # Progress bar style (also available style = 1 and style = 2)
+                           width = 50,   # Progress bar width. Defaults to getOption("width")
+                           char = "=")   # Character used to create the bar
     
     for(j in 1:nrepl){
-      tempo_inicial1 = proc.time()
-      cat("\n\n nrepl: ", j, "\n")
       
       ####Initial states
       ###environment
@@ -351,8 +355,11 @@ model_uni<-function(ncarc, nrepl){
       prevalence_OS[j]=mean(prev_OS,na.rm=T)
       prevalence_O[j]=mean(prev_O,na.rm=T)
       
+      setTxtProgressBar(pb, j)
       
     } # End of the stochastic node j
+      
+      close(pb)
     
     mu_mu_c[[k]][w]<-mean(me_C,na.rm=T)
     mu_p_c[[k]][w]<-mean(prevalence_C,na.rm=T)
