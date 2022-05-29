@@ -30,6 +30,6 @@ model_uni(ncarc=500, nrepl=5000)
 
 #Run the multivariable sensitivity model
 source(here("Cap_1","Scripts","model_carcas_multi.R"))
-model(ncarc=500, nrepl=5000)
+model(ncarc=50, nrepl=50)
 
 

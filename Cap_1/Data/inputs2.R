@@ -357,8 +357,8 @@ prevalence_OS=numeric()
 prevalence_O=numeric()
 
 
-mu_mu_c=list(NULL,NULL,NULL,NULL,NULL,NULL,NULL)
-mu_p_c=list(NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+mu_mu_c=vector(mode = "list", length = 7)
+mu_p_c=vector(mode = "list", length = 7)
 
 
 
